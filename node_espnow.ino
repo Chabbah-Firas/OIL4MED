@@ -89,14 +89,15 @@ void loop() {
     esp_now_send(adresseDiffusion, (uint8_t *) &mesDonnees, sizeof(mesDonnees));
     //delay(100);
     // Afficher la température et l'humidité
+    Serial.println();
     Serial.print("Température : ");
-    Serial.println(temperature);
+    Serial.print(temperature);
     Serial.print(" °C, Humidité : ");
     Serial.print(humidite);
     Serial.println(" %");
     // Entrer en mode deep sleep pendant une heure (3600 secondes)
      Serial.println("Je vais entrer en mode deep sleep pendant une heure");
-     ESP.deepSleep(15e6); 
+     ESP.deepSleep(3600e6); 
     dernierTemps = millis();
   
   }
