@@ -1,2 +1,15 @@
 On suppose dans ce scénario qu’on va installer notre solution pour un seul agriculteur et que 
 ce dernier ne possède qu’une seule chambre de stockage comme il est indiqué dans la figure Premier Scenario.png
+Conclusion
+Cette solution est plus pratique pour ce scénario puis qu’elle est facile à implémenter, on 
+peut même modifier les informations d'identification Wi-Fi de l'ESP8266 par liaison radio sans 
+toucher et télécharger le code modifié via l'IDE Arduino.
+Economiquement parlant, cette étude a été développer pour que son cout soit réduit le 
+maximum, son estimation est de 25 Dinars.
+Malgré tous ce points positif que nous avons cité, cette solution présente une faille de 
+sécurité, car l’appareil est connecter directement à la base de donnée, un personne avec un peu
+de connaissance en langage C peut obtenir les paramètres d’accès de notre base de 
+donnée(MySQL) ou bien il peut tout simplement envoyer plusieurs donnée dans un espace de 
+temps très réduit et corrompre le serveur dans notre cas ,mais vu que notre client cible est un 
+agriculteur donc en général il n’a pas de connaissance en informatique donc de mon point de 
+vue , cela engendra pas de problèmes 
