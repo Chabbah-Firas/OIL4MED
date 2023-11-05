@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Configuration WiFi et MQTT</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Configuration WiFi et MQTT</h1>
+  <div class="logo">
+    <img src="chemin/vers/votre/logo.png" alt="Logo de l'entreprise">
+  </div>
+  <div class="form-container">
+    <div class="form-group">
+      <label for="ssid">SSID WiFi:</label>
+      <input type="text" id="ssid" name="ssid">
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe WiFi:</label>
+      <input type="password" id="password" name="password">
+    </div>
+    <div class="form-group">
+      <label for="mqtt-ip">Adresse IP MQTT:</label>
+      <input type="text" id="mqtt-ip" name="mqtt-ip">
+    </div>
+    <div class="form-group">
+      <label for="mqtt-port">Port MQTT:</label>
+      <input type="text" id="mqtt-port" name="mqtt-port">
+    </div>
+    <div class="form-group">
+      <label for="mqtt-username">Nom d'utilisateur MQTT:</label>
+      <input type="text" id="mqtt-username" name="mqtt-username">
+    </div>
+    <div class="form-group">
+      <label for="mqtt-password">Mot de passe MQTT:</label>
+      <input type="password" id="mqtt-password" name="mqtt-password">
+    </div>
+    <button class="button" id="start-button">Start</button>
+  </div>
+
+  <script>
+    // JavaScript code to handle the "Start" button
+    const startButton = document.getElementById('start-button');
+
+    startButton.addEventListener('click', function() {
+      // Get input values
+      const ssid = document.getElementById('ssid').value;
+      const password = document.getElementById('password').value;
+      const mqttIp = document.getElementById('mqtt-ip').value;
+      const mqttPort = document.getElementById('mqtt-port').value;
+      const mqttUsername = document.getElementById('mqtt-username').value;
+      const mqttPassword = document.getElementById('mqtt-password').value;
+
+      // Perform actions or send data using the input values
+
+      // Example: Print the values to the console
+      console.log('SSID:', ssid);
+      console.log('Password:', password);
+      console.log('MQTT IP:', mqttIp);
+      console.log('MQTT Port:', mqttPort);
+      console.log('MQTT Username:', mqttUsername);
+      console.log('MQTT Password:', mqttPassword);
+    });
+  </script>
+</body>
+</html>
