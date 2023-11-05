@@ -1,0 +1,36 @@
+On suppose dans ce scénario qu’on va installer notre solution pour un seul agriculteur, un 
+distributeur ou un producteur et que ce dernier possède plus qu’une seule chambre de stockage 
+comme il est indiqué dans la figure deuxieme scenario.
+
+La solution classique pour ce scénario est d’installer un routeur dans chaque entrepôt pour 
+que notre appareil puisse connecter au réseau et envoyer les valeurs mesurées vers notre base de 
+donnée, la figure la solution classique illustré ça
+
+Chaque appareil (routeur + ESP8266) consomme de l’électricité mais parfois chez les 
+agriculteurs l’infrastructure électrique n’est pas présente ou n’est pas conforme, l’objectif est
+d’être le plus proche possible de l’huile d’olive pour permettre de mesuré des valeurs plus 
+exactes de l’état de stockage de notre produit, nous avons penser à rendre notre solution 
+indépendant de l’électricité en mettant des batteries lithium 18650mAh comme source 
+d’énergie. Concernant les routeurs, nous avons penser à simplement installer un seul routeur 
+wifi connecter à un serveur privé qui reçoit les données de chaque lieu de stockage à l’aide de 
+protocole ESP_NOW qui vont être transmit à la base de donnée MySQL via le protocole MQTT 
+comme nous avons indiqué dans la figure Transmission de données.
+
+L’usage du protocole ESP-NOW nécessite la connaissance de l’adresse MAC (Media 
+Access Control) de chaque carte ESP8266 pour que nous puisons établir la communication entre 
+les différentes cartes sans avoir besoin d’un routeur wifi qui joue le rôle d’un intermédiaire.
+En utilisant la fonction WiFi.macAddress(), nous pouvons connaitre l’adresse MAC de la 
+carte ESP8266. Ainsi, nous pouvons même définir une adresse MAC personnalisée pour la carte 
+ESP8266 en utilisant la fonction wifi_set_macaddr () comme il est indiqué dans la figure mac_adress,
+mais à chaque fois que vous réinitialisez la carte ou téléchargez un nouveau code,
+elle reviendra à son adresse MAC par défaut, c’est pour cette raison qu’on évite de le changer.
+
+Concernant la passerelle ESP_NOW/MQTT, nous avons utilisé en premier lieu la carte 
+Raspberry pi3 B+ mais cette solution elle est classique et même la carte elle est plus chère et en 
+rupture de stock à l’échelle internationale donc nous avons cherché une autre solution plus 
+pratique pour notre scénario.
+En installant deux carte esp8266, la première est responsable à la réception de donnée
+via la protocole ESP_NOW et l’autre doit toujours connecter au réseau wifi pour qu’elle puisse 
+insère le donnée qu’elle a reçu via la protocole UART (pins RX/TX) dans MySQL, l'image gateway 
+montre la connexion entre le deux cartes .
+
